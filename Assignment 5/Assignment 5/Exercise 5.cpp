@@ -74,9 +74,15 @@ public:
 
 			}
 
+			nominator = mul1 * nominator;
+			i.nominator = mul2 * i.nominator;
+
 			nominator += i.nominator;
 
 		}
+
+		reduce();
+
 	}
 
 	Fraction decrease_with(Fraction i) {
@@ -102,13 +108,13 @@ public:
 private:
 	int nominator, denominator;
 
-	Fraction reduce(Fraction r) {
-		for (size_t i = r.denominator; i > 0; i--)
+	void reduce(void) {
+		for (size_t i = denominator; i > 0; i--)
 		{
-			if (!(r.nominator % i) && !(r.denominator % i))
+			if (!(nominator % i) && !(denominator % i))
 			{
-				r.nominator = r.nominator / i;
-				r.denominator = r.denominator / i;
+				nominator = nominator / i;
+				denominator = denominator / i;
 			}
 		}
 	}
@@ -132,7 +138,7 @@ Fraction div(Fraction x, Fraction y) {
 }
 
 */
-Fraction a(5, 10), b(1);
+Fraction a(5, 10), b(3, 10);
 
 int main(void) {
 
@@ -140,7 +146,7 @@ int main(void) {
 	b.print();
 
 	a.increase_with(b);
-
+	cout << "\n\n";
 	a.print();
 
 	std::getchar();
