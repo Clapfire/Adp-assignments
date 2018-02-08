@@ -20,6 +20,8 @@
 	have two fractions as parameters and returns a fraction.You will need to add the member
 	functions get - nominator() and get_denominator() to your Fraction class.
 */
+#include <iostream>
+using namespace std;
 
 class Fraction
 {
@@ -29,11 +31,14 @@ public:
 	Fraction(int n) : nominator(n), denominator(1) {};
 
 	void print(void) {
-
+		cout << nominator << " / " << denominator;
 	}
 
 	Fraction increase_with(Fraction i) {
-
+		if (denominator == i.denominator)
+		{
+			
+		}
 	}
 
 	Fraction decrease_with(Fraction i) {
@@ -59,11 +64,19 @@ public:
 private:
 	int nominator, denominator;
 
-	Fraction reduce(Fraction i) {
-
+	Fraction reduce(Fraction r) {
+		for (size_t i = r.denominator; i > 0; i--)
+		{
+			if (!(r.nominator % i) && !(r.denominator % i))
+			{
+				r.nominator = r.nominator / i;
+				r.denominator = r.denominator / i;
+			}
+		}
 	}
 };
 
+/*
 Fraction sum(Fraction x, Fraction y) {
 
 }
@@ -80,6 +93,7 @@ Fraction div(Fraction x, Fraction y) {
 
 }
 
+*/
 Fraction a(5, 10), b(7);
 
 int main(void) {
