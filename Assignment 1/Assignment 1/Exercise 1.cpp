@@ -41,8 +41,5 @@ int main()
 	one.tick();
 	one.tick();
 	cout << one.get() << " " << two.get() << "\n";
-
-	std::getchar();
-
 	return 0;
 }
