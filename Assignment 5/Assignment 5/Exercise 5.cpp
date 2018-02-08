@@ -31,13 +31,40 @@ public:
 	Fraction(int n) : nominator(n), denominator(1) {};
 
 	void print(void) {
-		cout << nominator << " / " << denominator;
+		cout << nominator << " / " << denominator << "\n";
 	}
 
-	Fraction increase_with(Fraction i) {
+	void increase_with(Fraction i) {
 		if (denominator == i.denominator)
 		{
-			
+			nominator += i.nominator;
+		}
+		else
+		{
+			int ini_den1 = denominator; //temporary storage of initial value
+			int ini_den2 = i.denominator;
+			int mul1 = 0; //multiple counters
+			int mul2 = 0;
+
+			while (denominator != i.denominator)
+			{
+
+				if (denominator < i.denominator)
+				{
+					denominator += ini_den1;
+					mul1++;
+				}
+
+				if (denominator > i.denominator)
+				{
+					i.denominator += ini_den2;
+					mul2++;
+				}
+
+			}
+
+			nominator += i.nominator;
+
 		}
 	}
 
@@ -98,6 +125,14 @@ Fraction a(5, 10), b(7);
 
 int main(void) {
 
+	a.print();
+	b.print();
+
+	a.increase_with(b);
+
+	a.print();
+
+	std::getchar();
 
 	return 0;
 }
