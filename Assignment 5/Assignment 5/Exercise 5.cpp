@@ -35,12 +35,17 @@ public:
 	}
 
 	void increase_with(Fraction i) {
+
+		i.print(); //testing
+
 		if (denominator == i.denominator)
 		{
+			cout << "first if \n"; //testing
 			nominator += i.nominator;
 		}
 		else
 		{
+			cout << "else \n"; //testing
 			int ini_den1 = denominator; //temporary storage of initial value
 			int ini_den2 = i.denominator;
 			int mul1 = 0; //multiple counters
@@ -48,15 +53,21 @@ public:
 
 			while (denominator != i.denominator)
 			{
+				cout << "a: " << denominator; //testing
+				cout << "\n i: "; //testing
+				i.print(); //testing
+				cout << "while \n"; //testing
 
 				if (denominator < i.denominator)
 				{
+					cout << "second if \n"; //testing
 					denominator += ini_den1;
 					mul1++;
 				}
 
 				if (denominator > i.denominator)
 				{
+					cout << "third if \n"; //testing
 					i.denominator += ini_den2;
 					mul2++;
 				}
@@ -121,7 +132,7 @@ Fraction div(Fraction x, Fraction y) {
 }
 
 */
-Fraction a(5, 10), b(7);
+Fraction a(5, 10), b(1);
 
 int main(void) {
 
