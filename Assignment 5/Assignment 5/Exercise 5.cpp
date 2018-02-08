@@ -48,6 +48,14 @@ public:
 
 	}
 
+	int get_nominator(void) {
+		return nominator;
+	}
+
+	int get_denominator(void) {
+		return denominator;
+	}
+
 private:
 	int nominator, denominator;
 
@@ -55,3 +63,27 @@ private:
 
 	}
 };
+
+Fraction sum(Fraction x, Fraction y) {
+
+}
+
+Fraction difference(Fraction x, Fraction y) {
+
+}
+
+Fraction mul(Fraction x, Fraction y) {
+
+}
+
+Fraction div(Fraction x, Fraction y) {
+
+}
+
+Fraction a(5, 10), b(7);
+
+int main(void) {
+
+
+	return 0;
+}
