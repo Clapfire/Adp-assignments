@@ -76,7 +76,43 @@ public:
 
 	}
 
-	Fraction decrease_with(Fraction i) {
+	void decrease_with(Fraction i) {
+		if (denominator == i.denominator)
+		{
+			nominator -= i.nominator;
+		}
+		else
+		{
+			int ini_den1 = denominator; //temporary storage of initial value
+			int ini_den2 = i.denominator;
+			int mul1 = 1; //multiple counters
+			int mul2 = 1;
+
+			while (denominator != i.denominator)
+			{
+
+				if (denominator < i.denominator)
+				{
+					denominator += ini_den1;
+					mul1++;
+				}
+
+				if (denominator > i.denominator)
+				{
+					i.denominator += ini_den2;
+					mul2++;
+				}
+
+			}
+
+			nominator = mul1 * nominator;
+			i.nominator = mul2 * i.nominator;
+
+			nominator -= i.nominator;
+
+		}
+
+		reduce();
 
 	}
 
@@ -137,6 +173,10 @@ int main(void) {
 	b.print();
 
 	a.increase_with(b);
+	cout << "\n\n";
+	a.print();
+
+	a.decrease_with(b);
 	cout << "\n\n";
 	a.print();
 
