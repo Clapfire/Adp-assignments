@@ -31,7 +31,7 @@ public:
 	Fraction(int n) : nominator(n), denominator(1) {};
 
 	void print(void) {
-		cout << nominator << " / " << denominator << "\n";
+		cout << nominator << "/" << denominator;
 	}
 
 	void increase_with(Fraction i) {
@@ -116,12 +116,18 @@ public:
 
 	}
 
-	Fraction multiply_with(Fraction i) {
+	void multiply_with(Fraction i) {
+		nominator *= i.nominator;
+		denominator *= i.denominator;
 
+		reduce();
 	}
 
-	Fraction divide_with(Fraction i) {
+	void divide_with(Fraction i) {
+		nominator *= i.denominator;
+		denominator *= i.nominator;
 
+		reduce();
 	}
 
 	int get_nominator(void) {
@@ -169,16 +175,43 @@ Fraction a(5, 10), b(3, 11);
 
 int main(void) {
 
+	cout << "a: ";
 	a.print();
+	cout << "\nb: ";
 	b.print();
+	cout << "\n\n";
 
+	a.print();
+	cout << " + ";
+	b.print();
 	a.increase_with(b);
-	cout << "\n\n";
+	cout << "\n=\n";
 	a.print();
+	cout << "\n\n";
 
-	a.decrease_with(b);
-	cout << "\n\n";
 	a.print();
+	cout << " - ";
+	b.print();
+	a.decrease_with(b);
+	cout << "\n=\n";
+	a.print();
+	cout << "\n\n";
+
+	a.print();
+	cout << " * ";
+	b.print();
+	a.multiply_with(b);
+	cout << "\n=\n";
+	a.print();
+	cout << "\n\n";
+
+	a.print();
+	cout << " / ";
+	b.print();
+	a.divide_with(b);
+	cout << "\n=\n";
+	a.print();
+	cout << "\n\n";
 
 	std::getchar();
 
