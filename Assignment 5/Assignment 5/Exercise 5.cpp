@@ -153,37 +153,49 @@ private:
 	}
 };
 
-/*
-Fraction sum(Fraction x, Fraction y) {
 
+Fraction sum(Fraction x, Fraction y) {
+	x.increase_with(y);
+
+	return x;
 }
 
 Fraction difference(Fraction x, Fraction y) {
+	x.decrease_with(y);
 
+	return x;
 }
 
 Fraction mul(Fraction x, Fraction y) {
+	x.multiply_with(y);
 
+	return x;
 }
 
 Fraction div(Fraction x, Fraction y) {
+	x.divide_with(y);
 
+	return x;
 }
 
-*/
+
 Fraction a(5, 10), b(3, 11);
 
 int main(void) {
-
+	
+	//testing member functions
 	cout << "a: ";
 	a.print();
 	cout << "\nb: ";
 	b.print();
 	cout << "\n\n";
 
+	cout << "MEMBER FUNCTIONS: \n\n";
+
 	a.print();
 	cout << " + ";
 	b.print();
+
 	a.increase_with(b);
 	cout << "\n=\n";
 	a.print();
@@ -192,6 +204,7 @@ int main(void) {
 	a.print();
 	cout << " - ";
 	b.print();
+
 	a.decrease_with(b);
 	cout << "\n=\n";
 	a.print();
@@ -200,6 +213,7 @@ int main(void) {
 	a.print();
 	cout << " * ";
 	b.print();
+
 	a.multiply_with(b);
 	cout << "\n=\n";
 	a.print();
@@ -208,9 +222,45 @@ int main(void) {
 	a.print();
 	cout << " / ";
 	b.print();
+
 	a.divide_with(b);
 	cout << "\n=\n";
 	a.print();
+	cout << "\n\n";
+
+	//testing non-member functions
+	cout << "NON-MEMBER FUNCTIONS: \n\n";
+
+	a.print();
+	cout << " + ";
+	b.print();
+
+	cout << "\n=\n";
+	sum(a, b).print();
+	cout << "\n\n";
+
+	a.print();
+	cout << " - ";
+	b.print();
+
+	cout << "\n=\n";
+	difference(a, b).print();
+	cout << "\n\n";
+
+	a.print();
+	cout << " * ";
+	b.print();
+
+	cout << "\n=\n";
+	mul(a, b).print();
+	cout << "\n\n";
+
+	a.print();
+	cout << " / ";
+	b.print();
+
+	cout << "\n=\n";
+	div(a, b).print();
 	cout << "\n\n";
 
 	std::getchar();
