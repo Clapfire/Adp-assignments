@@ -46,6 +46,8 @@ void main(void) {
 
 	aa = 7;
 
+	int *z_ptr = &a, *y_ptr = &aa;
+
 	cout << setw(10) << " name " << setw(10) << " address " << setw(10) << " content " << endl;
 	cout << setw(10) << " a " << setw(10) << &a << setw(10) << a << endl;
 	cout << setw(10) << " b " << setw(10) << &b << setw(10) << b << endl;
@@ -55,6 +57,8 @@ void main(void) {
 	cout << setw(10) << " b_ptr " << setw(10) << &b_ptr << setw(10) << b_ptr << endl;
 	cout << setw(10) << " c_ptr " << setw(10) << &c_ptr << setw(10) << c_ptr << endl;
 	cout << setw(10) << " int_ptr " << setw(10) << &int_ptr << setw(10) << int_ptr << endl;
+	cout << setw(10) << " z_ptr " << setw(10) << &z_ptr << setw(10) << z_ptr << endl;
+	cout << setw(10) << " y_ptr " << setw(10) << &y_ptr << setw(10) << y_ptr << endl;
 
 	std:getchar();
 }
