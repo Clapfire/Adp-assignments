@@ -15,8 +15,10 @@ cout << setw(10) << “ a “ << setw(10) << &a << setw(10) << a << endl;
 using namespace std;
 
 void main(void) {
-	int a = 2, b = 3, c = 4, sum = (a + b + c);
+	int a = 2, b = 3, c = 4, sum;
 	int *a_ptr = &a, *b_ptr = &b, *c_ptr = &c;
+
+	sum = (*a_ptr + *b_ptr + *c_ptr);
 
 	cout << setw(10) << " name " << setw(10) << " address " << setw(10) << " content " << endl;
 	cout << setw(10) << " a " << setw(10) << &a << setw(10) << a << endl;
