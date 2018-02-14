@@ -3,11 +3,11 @@ Make a program with these integer variables : sum, a =2, b=3, c=4, and declare 3
 variables a_ptr, b_ptr, c_ptr; - a_ptr points at a etc.
 Your program must at the end output your variables in a table ( an “excerpt” of the memory ) sketched
 out below for the variables defined so far. Use the function setw from the iomanip library(add:
-#include<iomanip> in the top of your program) to align the columns – for instance assigning 10 spaces
+#include<iomanip> in the top of your program) to align the columns – for instance assigning 15 spaces
 for each column like this for the headline
-cout << setw(10) << “ name “ << setw(10) << “ address “ << setw(10) << “ content “ << endl;
+cout << setw(15) << “ name “ << setw(15) << “ address “ << setw(15) << “ content “ << endl;
 and the entry in the table for a looks like this:
-cout << setw(10) << “ a “ << setw(10) << &a << setw(10) << a << endl;
+cout << setw(15) << “ a “ << setw(15) << &a << setw(15) << a << endl;
 
 a)
 By using only the 3 pointer variables a_ptr, b_ptr and c_ptr calculate the sum of a, b and c and assign
@@ -44,26 +44,57 @@ void main(void) {
 
 	int& aa = a;
 
-	aa = 7;
-
 	int *z_ptr = &a, *y_ptr = &aa;
 
 	int **int_ptr_ptr = &a_ptr;
 
+	cout << setw(15) << " name " << setw(15) << " address " << setw(15) << " content " << endl;
+	cout << setw(15) << " a " << setw(15) << &a << setw(15) << a << endl;
+	cout << setw(15) << " aa " << setw(15) << &aa << setw(15) << aa << endl;
+	cout << setw(15) << " b " << setw(15) << &b << setw(15) << b << endl;
+	cout << setw(15) << " c " << setw(15) << &c << setw(15) << c << endl;
+	cout << setw(15) << " sum " << setw(15) << &sum << setw(15) << sum << endl;
+	cout << setw(15) << " a_ptr " << setw(15) << &a_ptr << setw(15) << a_ptr << endl;
+	cout << setw(15) << " b_ptr " << setw(15) << &b_ptr << setw(15) << b_ptr << endl;
+	cout << setw(15) << " c_ptr " << setw(15) << &c_ptr << setw(15) << c_ptr << endl;
+	cout << setw(15) << " int_ptr " << setw(15) << &int_ptr << setw(15) << int_ptr << endl;
+	cout << setw(15) << " int_ptr_ptr " << setw(15) << &int_ptr_ptr << setw(15) << int_ptr_ptr << endl;
+	cout << setw(15) << " z_ptr " << setw(15) << &z_ptr << setw(15) << z_ptr << endl;
+	cout << setw(15) << " y_ptr " << setw(15) << &y_ptr << setw(15) << y_ptr << endl;
+
+	cout << endl << "Setting aa to 7" << endl << endl;
+	aa = 7;
+
+	cout << setw(15) << " name " << setw(15) << " address " << setw(15) << " content " << endl;
+	cout << setw(15) << " a " << setw(15) << &a << setw(15) << a << endl;
+	cout << setw(15) << " aa " << setw(15) << &aa << setw(15) << aa << endl;
+	cout << setw(15) << " b " << setw(15) << &b << setw(15) << b << endl;
+	cout << setw(15) << " c " << setw(15) << &c << setw(15) << c << endl;
+	cout << setw(15) << " sum " << setw(15) << &sum << setw(15) << sum << endl;
+	cout << setw(15) << " a_ptr " << setw(15) << &a_ptr << setw(15) << a_ptr << endl;
+	cout << setw(15) << " b_ptr " << setw(15) << &b_ptr << setw(15) << b_ptr << endl;
+	cout << setw(15) << " c_ptr " << setw(15) << &c_ptr << setw(15) << c_ptr << endl;
+	cout << setw(15) << " int_ptr " << setw(15) << &int_ptr << setw(15) << int_ptr << endl;
+	cout << setw(15) << " int_ptr_ptr " << setw(15) << &int_ptr_ptr << setw(15) << int_ptr_ptr << endl;
+	cout << setw(15) << " z_ptr " << setw(15) << &z_ptr << setw(15) << z_ptr << endl;
+	cout << setw(15) << " y_ptr " << setw(15) << &y_ptr << setw(15) << y_ptr << endl;
+
+	cout << endl << "Setting int_ptr_ptr to 9" << endl << endl;
 	**int_ptr_ptr = 9;
 
-	cout << setw(10) << " name " << setw(10) << " address " << setw(10) << " content " << endl;
-	cout << setw(10) << " a " << setw(10) << &a << setw(10) << a << endl;
-	cout << setw(10) << " b " << setw(10) << &b << setw(10) << b << endl;
-	cout << setw(10) << " c " << setw(10) << &c << setw(10) << c << endl;
-	cout << setw(10) << " sum " << setw(10) << &sum << setw(10) << sum << endl;
-	cout << setw(10) << " a_ptr " << setw(10) << &a_ptr << setw(10) << a_ptr << endl;
-	cout << setw(10) << " b_ptr " << setw(10) << &b_ptr << setw(10) << b_ptr << endl;
-	cout << setw(10) << " c_ptr " << setw(10) << &c_ptr << setw(10) << c_ptr << endl;
-	cout << setw(10) << " int_ptr " << setw(10) << &int_ptr << setw(10) << int_ptr << endl;
-	cout << setw(10) << " int_ptr_ptr " << setw(10) << &int_ptr_ptr << setw(10) << int_ptr_ptr << endl;
-	cout << setw(10) << " z_ptr " << setw(10) << &z_ptr << setw(10) << z_ptr << endl;
-	cout << setw(10) << " y_ptr " << setw(10) << &y_ptr << setw(10) << y_ptr << endl;
+	cout << setw(15) << " name " << setw(15) << " address " << setw(15) << " content " << endl;
+	cout << setw(15) << " a " << setw(15) << &a << setw(15) << a << endl;
+	cout << setw(15) << " aa " << setw(15) << &aa << setw(15) << aa << endl;
+	cout << setw(15) << " b " << setw(15) << &b << setw(15) << b << endl;
+	cout << setw(15) << " c " << setw(15) << &c << setw(15) << c << endl;
+	cout << setw(15) << " sum " << setw(15) << &sum << setw(15) << sum << endl;
+	cout << setw(15) << " a_ptr " << setw(15) << &a_ptr << setw(15) << a_ptr << endl;
+	cout << setw(15) << " b_ptr " << setw(15) << &b_ptr << setw(15) << b_ptr << endl;
+	cout << setw(15) << " c_ptr " << setw(15) << &c_ptr << setw(15) << c_ptr << endl;
+	cout << setw(15) << " int_ptr " << setw(15) << &int_ptr << setw(15) << int_ptr << endl;
+	cout << setw(15) << " int_ptr_ptr " << setw(15) << &int_ptr_ptr << setw(15) << int_ptr_ptr << endl;
+	cout << setw(15) << " z_ptr " << setw(15) << &z_ptr << setw(15) << z_ptr << endl;
+	cout << setw(15) << " y_ptr " << setw(15) << &y_ptr << setw(15) << y_ptr << endl;
 
 	std:getchar();
 }
