@@ -15,10 +15,17 @@ cout << setw(10) << “ a “ << setw(10) << &a << setw(10) << a << endl;
 using namespace std;
 
 void main(void) {
-	int sum, a = 2, b = 3, c = 4;
+	int a = 2, b = 3, c = 4, sum = (a + b + c);
 	int *a_ptr = &a, *b_ptr = &b, *c_ptr = &c;
 
-
+	cout << setw(10) << " name " << setw(10) << " address " << setw(10) << " content " << endl;
+	cout << setw(10) << " a " << setw(10) << &a << setw(10) << a << endl;
+	cout << setw(10) << " b " << setw(10) << &b << setw(10) << b << endl;
+	cout << setw(10) << " c " << setw(10) << &c << setw(10) << c << endl;
+	cout << setw(10) << " sum " << setw(10) << &sum << setw(10) << sum << endl;
+	cout << setw(10) << " a_ptr " << setw(10) << &a_ptr << setw(10) << a_ptr << endl;
+	cout << setw(10) << " b_ptr " << setw(10) << &b_ptr << setw(10) << b_ptr << endl;
+	cout << setw(10) << " c_ptr " << setw(10) << &c_ptr << setw(10) << c_ptr << endl;
 
 	std:getchar();
 }
