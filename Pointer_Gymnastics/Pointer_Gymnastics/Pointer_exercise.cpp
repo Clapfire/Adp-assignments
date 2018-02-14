@@ -42,6 +42,10 @@ void main(void) {
 	
 	int *int_ptr = new int[5];
 
+	int& aa = a;
+
+	aa = 7;
+
 	cout << setw(10) << " name " << setw(10) << " address " << setw(10) << " content " << endl;
 	cout << setw(10) << " a " << setw(10) << &a << setw(10) << a << endl;
 	cout << setw(10) << " b " << setw(10) << &b << setw(10) << b << endl;
