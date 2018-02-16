@@ -23,11 +23,6 @@ Declare two pointers to int and let z_ptr point at a and y_ptr at aa. What can y
 addresses they contain?
 f)
 Make a pointer to pointer to int: int_ptr_ptr. Let it point to a_ptr. Use it to assign 9 to a.
-Bonus round: Dynamic arrays
-Make a program, which asks the user about how many numbers to input. Then use the built-in function
-new to allocate the necessary number of members in a dynamic array ( int *dynarr = int[n];). Input the
-numbers to the dynamic array and then output them in reverse order. Delete the array with the function
-delete (delete dynarr[];) and let the program start all over again.
 */
 
 #include<iostream>
