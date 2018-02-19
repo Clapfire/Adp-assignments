@@ -19,21 +19,36 @@ void show_box_data(int side1, int side2, int side3, int surface, int volume);
 
 int main(void) {
 	int side1, side2, side3, surface, volume;
-	input_box_sides();
-	calculate_box_data();
-	show_box_data();
+	input_box_sides(side1, side2, side3);
+	calculate_box_data(side1, side2, side3, surface, volume);
+	show_box_data(side1, side2, side3, surface, volume);
 
 	return 0;
 }
 
 void input_box_sides(int& side1, int& side2, int& side3) {
+	
+	cout << "Please input side 1: \n";
+	cin >> side1;
 
+	cout << "Please input side 2: \n";
+	cin >> side2;
+
+	cout << "Please input side 3: \n";
+	cin >> side3;
 }
 
 void calculate_box_data(int side1, int side2, int side3, int& surface, int& volume) {
 
+	surface = (side1 * side2) * 2 + (side2 * side3) * 2 + (side1 * side3) * 2;
+	volume = side1 * side2 * side3;
 }
 
 void show_box_data(int side1, int side2, int side3, int surface, int volume) {
-
+	cout << setw(10) << " Name " << setw(10) << " Value " << endl;
+	cout << setw(10) << "Side 1" << setw(10) << side1 << endl;
+	cout << setw(10) << "Side 2" << setw(10) << side2 << endl;
+	cout << setw(10) << "Side 3" << setw(10) << side3 << endl;
+	cout << setw(10) << "Surface" << setw(10) << surface << endl;
+	cout << setw(10) << "Volume" << setw(10) << volume << endl;
 }
