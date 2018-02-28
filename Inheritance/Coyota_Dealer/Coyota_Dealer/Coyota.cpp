@@ -31,7 +31,6 @@ In the main function some employees and customers are defined. Do stepwise testi
 Comment out what you have not yet implemented in the main function.
 */
 
-
 #include<iostream>
 #include<string>
 #include<vector>
@@ -40,8 +39,12 @@ using namespace std;
 class Person
 {
 public:
-	Person(string n, string adr, int a);
-	void print(void) const;
+	Person(string n, string adr, int a) : name(n), address(adr), age(a) {}
+	void print(void) const
+	{
+		cout << "Name: " << name << " Address: " << address << " Age: " << age << endl;
+	};
+
 private:
 	string name, address;
 	int age;
@@ -50,8 +53,13 @@ private:
 class Customer
 {
 public:
-	Customer(const Person &p, double ac);
-	void print(void);
+	Customer(const Person &p, double ac) : person_ptr(&p), account(ac), customer_number(customer_number_init++) {}
+	void print(void)
+	{
+		person_ptr->print;
+		cout << "Account: " << account << " Customer number: " << customer_number << endl;
+	};
+
 private:
 	const Person *person_ptr;
 	int customer_number;
@@ -59,24 +67,38 @@ private:
 	double account;
 };
 
+int Customer::customer_number_init = 1;
+
 class Employee
 {
 public:
-	Employee(const Person *p_ptr);
-	void print(void);
+	Employee(const Person *p_ptr) : person_ptr(p_ptr), employee_number(employee_number_init++) {}
+	void print(void) {
+		person_ptr->print;
+		cout << "Employee Number: " << employee_number << endl;
+	}
 private:
 	const Person *person_ptr;
 	int employee_number;
 	static int employee_number_init;
 };
 
+int Employee::employee_number_init = 1;
+
 class Mechanic : public Employee
 {
 public:
-	Mechanic(const Person &p);
-	void set_hourly_salary(double s);
-	void set_hours(int h);
-	void print(void);
+	Mechanic(const Person &p) : Employee(&p) {}
+	void set_hourly_salary(double s) {
+		hourly_salary = s;
+	};
+	void set_hours(int h) {
+		hours = h;
+	};
+	void print(void) {
+		Employee::print();
+		cout << "Mechanic" << endl;
+	};
 private:
 	int hours;
 	double hourly_salary;
@@ -85,9 +107,14 @@ private:
 class Secretary : public Employee
 {
 public:
-	Secretary(const Person &p);
-	void set_monthly_salary(double s);
-	void print(void);
+	Secretary(const Person &p) : Employee(&p) {}
+	void set_monthly_salary(double s) {
+		monthly_salary = s;
+	};
+	void print(void) {
+		Employee::print();
+		cout << "Secretary" << endl;
+	};
 private:
 	double monthly_salary;
 };
@@ -95,10 +122,17 @@ private:
 class Salesman : public Employee
 {
 public:
-	Salesman(const Person &p);
-	void set_provision(double p);
-	void set_sale(double s);
-	void print(void);
+	Salesman(const Person &p) : Employee(&p) {}
+	void set_provision(double p) {
+		provision = p;
+	}
+	void set_sale(double s) {
+		sale = s;
+	}
+	void print(void) {
+				Employee::print();
+		cout << "Salesman" << endl;
+	}
 private:
 	double sale, provision;
 };
@@ -106,9 +140,14 @@ private:
 class Director : public Employee
 {
 public:
-	Director(const Person &p);
-	void set_monthly_salary(double s);
-	void print(void);
+	Director(const Person &p) : Employee(&p) {}
+	void set_monthly_salary(double s) {
+		monthly_salary = s;
+	};
+	void print(void) {
+		Employee::print();
+		cout << "Director" << endl;
+	};
 private:
 	double monthly_salary;
 };
@@ -129,11 +168,19 @@ class Coyota_employee
 class Coyota_dealer
 {
 public:
-	Coyota_dealer(Person &o, string adr);
-	void hire(Employee &e);
-	void fire(Employee &e);
-	void register_customer(Customer &c);
-	void print(void);
+	Coyota_dealer(Person &o, string adr) : owner_ptr(&o), address(adr) {}
+	void hire(Employee &e) {
+
+	};
+	void fire(Employee &e) {
+
+	};
+	void register_customer(Customer &c) {
+
+	};
+	void print(void) {
+
+	};
 private:
 	Person * owner_ptr;
 	string address;
