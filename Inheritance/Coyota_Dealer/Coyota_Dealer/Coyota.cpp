@@ -56,7 +56,7 @@ public:
 	Customer(const Person &p, double ac) : person_ptr(&p), account(ac), customer_number(customer_number_init++) {}
 	void print(void)
 	{
-		person_ptr->print;
+		person_ptr->print();
 		cout << "Account: " << account << " Customer number: " << customer_number << endl;
 	};
 
@@ -74,7 +74,7 @@ class Employee
 public:
 	Employee(const Person *p_ptr) : person_ptr(p_ptr), employee_number(employee_number_init++) {}
 	void print(void) {
-		person_ptr->print;
+		person_ptr->print();
 		cout << "Employee Number: " << employee_number << endl;
 	}
 private:
@@ -170,16 +170,33 @@ class Coyota_dealer
 public:
 	Coyota_dealer(Person &o, string adr) : owner_ptr(&o), address(adr) {}
 	void hire(Employee &e) {
-
+		employees.push_back(&e);
 	};
 	void fire(Employee &e) {
-
+		vector<Employee*>::iterator ii;
+		int found = 0;
+		for (auto i = employees.begin(); i < employees.end(); i++)
+		{
+			if ((*i) == &e) {
+				ii = i;
+				found = 1;
+			}
+		}
+		if (found) {
+			employees.erase(ii);
+		}
 	};
 	void register_customer(Customer &c) {
 
 	};
 	void print(void) {
+		owner_ptr->print();
+		cout << "Employees:" << endl << endl;
 
+		for (auto i = employees.begin(); i < employees.end(); i++)
+		{
+			(*i)->print();
+		}
 	};
 private:
 	Person * owner_ptr;
@@ -195,7 +212,7 @@ int main(void)
 	m1.set_hourly_salary(100.5);
 	m1.set_hours(10);
 	m1.print();
-	/*
+	
 	cout << endl;
 
 	Person p2("Ole","Fynshav",22);
@@ -219,7 +236,7 @@ int main(void)
 	d1.print();
 
 	cout << endl;
-
+	/*
 	Person p7("Ito","Tokyo",30);
 	Foreign_worker f1(p7);
 	f1.set_monthly_salary(10000);
@@ -227,7 +244,7 @@ int main(void)
 	f1.set_hours(10);
 	f1.print();
 	cout << endl;
-
+	
 	Person p5("Rudolf","Augustenborg",25);
 	Customer c1(p5,100);
 	c1.print();
@@ -236,7 +253,7 @@ int main(void)
 	Customer c2(p7,0);
 	c2.print();
 	cout << endl;
-
+	*/
 	Person p6("Wolf","Broager",35);
 	Coyota_dealer Broager_coyota(p6," Broager");
 
@@ -244,10 +261,10 @@ int main(void)
 	Broager_coyota.hire(sm1);
 	Broager_coyota.hire(s1);
 	Broager_coyota.hire(m1);
-	Broager_coyota.hire(f1);
+	//Broager_coyota.hire(f1);
 
-	Broager_coyota.register_customer(c1);
-	Broager_coyota.register_customer(c2);
+	//Broager_coyota.register_customer(c1);
+	//Broager_coyota.register_customer(c2);
 
 	cout << endl;
 	Broager_coyota.print();
@@ -260,7 +277,7 @@ int main(void)
 	// Broager_coyota.write_letter_to_employees(" labor party on Friday ");
    // Broager_coyota.write_letter_to_customers(" come and try the new Coyota yaugo ");
    // Broager_coyota.write_letter_to_affiliates(" We have a speeder problem ");
-*/
+   
 	int kk; cin >> kk;
 	return 0;
 }
