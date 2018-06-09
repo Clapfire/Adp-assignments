@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <meta charset="utf-8">
+  <title>Traveller's Pizza!</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+  <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+  <script>
+  $( function() {
+    $( "input" ).checkboxradio();
+  } );
+  </script>
+  <script>
+      $( function() {
+        $( ".widget input[type=submit], .widget a, .widget button" ).button();
+        $( "button, input, a" ).click( function( event ) {
+          event.preventDefault();
+        } );
+      } );
+  </script>
+
+  <script>
+      $(document).ready(function(){
+          $("#orderBtn").click(function(){
+              $("#orderText").html("<b>Name:</b> " + $("#name").val() + 
+                                   "<br><b> Address:</b> " + $("#address").val() +
+                                   "<br><b> Phone #:</b> " + $("#phone").val() + "<br>");
+              
+              if ($("#Pizza1").prop("checked")){
+                $("#orderText").append("<br> Margherita <br>");
+              }
+
+              if ($("#Pizza2").prop("checked")){
+                $("#orderText").append("<br> Pepperoni <br>");
+              }
+
+              if ($("#Pizza3").prop("checked")){
+                $("#orderText").append("<br> Hawaiian <br>");
+              }
+
+              if ($("#Cheese").prop("checked")){
+                $("#orderText").append("+Cheese <br>");
+              }
+
+              if ($("#Garlic").prop("checked")){
+                $("#orderText").append("+Garlic <br>");
+              }
+
+              if ($("#Bacon").prop("checked")){
+                $("#orderText").append("+Bacon <br>");
+              }
+
+              if ($("#Olives").prop("checked")){
+                $("#orderText").append("+Olives <br>");
+              }
+
+          });
+          $("#cancelBtn").click(function(){
+              $("#orderText").html("<b>Name: <br> Address: <br> Phone #:</b>");
+          });
+
+          $("#btn3").click(function(){
+              $("#test3").val("Dolly Duck");
+          });
+      });
+      </script>
+
+</head>
+<body>
+<div class="widget">
+  <h1>Traveller's Pizza!</h1>
+ 
+  <h2>Pizza</h2>
+  <fieldset>
+    <legend>Select a Pizza: </legend>
+    <label for="radio-1">Margherita</label>
+    <input type="radio" name="radio-1" id="Pizza1">
+    <label for="radio-2">Pepperoni</label>
+    <input type="radio" name="radio-1" id="Pizza2">
+    <label for="radio-3">Hawaiian</label>
+    <input type="radio" name="radio-1" id="Pizza3">
+  </fieldset>
+ 
+  <h2>Extras</h2>
+  <fieldset>
+    <legend>Toppings: </legend>
+    <label for="checkbox-1">Cheese</label>
+    <input type="checkbox" name="checkbox-1" id="Cheese">
+    <label for="checkbox-2">Garlic</label>
+    <input type="checkbox" name="checkbox-1" id="Garlic">
+    <label for="checkbox-3">Bacon</label>
+    <input type="checkbox" name="checkbox-1" id="Bacon">
+    <label for="checkbox-4">Olives</label>
+    <input type="checkbox" name="checkbox-1" id="Olives">
+  </fieldset>
+</div>
+
+<P>Name: <input type="text" id ="name" placeholder="John Doe"></P>
+<P>Address: <input type="text" id ="address" placeholder="123 Awesome Street"></P>
+<P>Phone: <input type="text" id ="phone" placeholder="8888-8888"></P>
+
+<button id="orderBtn">Place Order</button> 
+<button id="cancelBtn">Cancel</button>
+
+
+<h2><b>Order:</b></h2>
+<p id="orderText"><b>Name: <br> Address: <br> Phone #:</b></p>
+ 
+</body>
+</html>

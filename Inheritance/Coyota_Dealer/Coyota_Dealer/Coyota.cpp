@@ -187,7 +187,7 @@ public:
 		}
 	};
 	void register_customer(Customer &c) {
-
+		customers.push_back(&c);
 	};
 	void print(void) {
 		owner_ptr->print();
